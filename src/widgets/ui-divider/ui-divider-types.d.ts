@@ -1,0 +1,3 @@
+interface IUIDividerProps {
+  containerStyle?: ViewStyle;
+}
