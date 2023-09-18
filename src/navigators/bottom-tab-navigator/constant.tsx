@@ -9,7 +9,7 @@ import MoreScreen from '@screens/more-screen';
 
 export const bottomTabOptions: IBottomTabOptions[] = [
   {
-    title: 'Employees',
+    title: 'Home',
     icon: {
       active: ACTIVE_HOME_ICON,
       inActive: INACTIVE_HOME_ICON,

@@ -2,17 +2,11 @@ import React from 'react';
 import {ActivityIndicator, FlatList, StyleSheet, View} from 'react-native';
 import useHomeScreenViewController from './home-screen-view-controller';
 import colors from '@resources/colors';
-import UIText from '@widgets/ui-text';
-import {FONT_TYPE} from '@theme/font';
-import EmployeeCard from './component/employee-card/employee-card';
+import {HOME_SCREEN_ITEM_LIST} from './home-screen-view-constant';
+import ActionCard from './component/action-card/action-card';
 
 const HomeScreen = () => {
-  const {
-    employeeList = [],
-    employeeLoadingStatus,
-    onDeleteButtonPressed,
-    onEditButtonPressed,
-  } = useHomeScreenViewController();
+  const {loadingStatus, onActionCardClicked} = useHomeScreenViewController();
 
   const renderLoader = () => {
     return (
@@ -22,25 +16,17 @@ const HomeScreen = () => {
     );
   };
 
-  const renderEmptyScreen = () => {
-    return (
-      <View style={styles.mainContainer}>
-        <UIText FontType={FONT_TYPE.LABEL_LARGE} text={'No Data Found'} />
-      </View>
-    );
-  };
-  return employeeLoadingStatus ? (
+  return loadingStatus ? (
     renderLoader()
-  ) : employeeList?.length === 0 ? (
-    renderEmptyScreen()
   ) : (
     <FlatList
-      data={employeeList}
+      data={HOME_SCREEN_ITEM_LIST}
+      numColumns={2}
+      contentContainerStyle={{flex: 1}}
       renderItem={({item}) =>
-        EmployeeCard({
+        ActionCard({
           dataItem: item,
-          onEditButtonPressed,
-          onDeleteButtonPressed,
+          onItemClicked: onActionCardClicked,
         })
       }
     />

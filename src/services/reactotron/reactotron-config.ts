@@ -8,7 +8,7 @@ export const modifiedConsole = __DEV__
 if (__DEV__) {
   Reactotron.configure({
     name: 'exampur',
-    host: '192.168.1.10', // to add Ip address for wireless connection
+    // host: '192.168.1.10', // to add Ip address for wireless connection
   }) // Controls connection and communication settings
     .setAsyncStorageHandler?.(AsyncStorage)
     .useReactNative() // and all built in react-native plugins

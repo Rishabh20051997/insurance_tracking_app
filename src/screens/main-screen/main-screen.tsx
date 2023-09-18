@@ -7,19 +7,19 @@ import PostAuthNavigator from '@navigators/post-auth-navigator';
 const MainScreen = () => {
   const {isLoggedIn, isAppReady} = useMainScreenViewController();
 
-  const inAppUpdate = NativeModules.InAppUpdate;
+  // const inAppUpdate = NativeModules.InAppUpdate;
 
   useEffect(() => {
-    if (isAppReady && isLoggedIn && !__DEV__) {
-      const timer = setTimeout(() => {
-        inAppUpdate.checkUpdate(); // this is how you check for update
-      }, 5000);
+    if (isAppReady && isLoggedIn) {
+      // const timer = setTimeout(() => {
+      //   inAppUpdate.checkUpdate(); // this is how you check for update
+      // }, 5000);
 
-      return () => clearTimeout(timer);
+      // return () => clearTimeout(timer);
     }
-  }, [inAppUpdate, isLoggedIn, isAppReady]);
+  }, [isLoggedIn, isAppReady]);
 
-  return isLoggedIn ? <PostAuthNavigator /> : <PreAuthNavigator />;
+  return isLoggedIn  ? <PostAuthNavigator /> : <PreAuthNavigator />;
 };
 
 export default MainScreen;

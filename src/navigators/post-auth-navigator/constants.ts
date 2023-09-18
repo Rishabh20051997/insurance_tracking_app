@@ -1,6 +1,6 @@
 import BottomTabBarNavigator from '@navigators/bottom-tab-navigator';
 import EditEmployeeScreen from '@screens/edit-employee-screen';
-import NewEmployeeScreen from '@screens/new-employee-screen';
+import NewInsuranceTrackScreen from '@screens/new-insurance-track-screen';
 import TaskListScreen from '@screens/task-list-screen';
 
 export const CONST_POST_AUTH_COMPONENTS: IRoutesProps[] = [
@@ -11,9 +11,9 @@ export const CONST_POST_AUTH_COMPONENTS: IRoutesProps[] = [
     headerShown: false,
   },
   {
-    name: 'CreateEmployee',
-    title: 'Create Employee',
-    component: NewEmployeeScreen,
+    name: 'NewInsuranceTrack',
+    title: 'Create New Insurance Entry',
+    component: NewInsuranceTrackScreen,
     headerShown: true,
   },
   {
